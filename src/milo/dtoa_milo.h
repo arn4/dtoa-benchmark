@@ -378,7 +378,7 @@ inline void Prettify(char* buffer, int length, int k) {
 	}
 }
 
-inline void dtoa_milo(double value, char* buffer) {
+inline void dtoa_milo(double value, char* buffer, int precision = -1) {
 	// Not handling NaN and inf
 	assert(!isnan(value));
 	assert(!isinf(value));
@@ -396,6 +396,9 @@ inline void dtoa_milo(double value, char* buffer) {
 		}
 		int length, K;
 		Grisu2(value, buffer, &length, &K);
+		if (precision != -1) {
+			lenght = precision;
+		}
 		Prettify(buffer, length, K);
 	}
 }
