@@ -397,7 +397,7 @@ inline void dtoa_milo(double value, char* buffer, int precision = -1) {
 		int length, K;
 		Grisu2(value, buffer, &length, &K);
 		if (precision != -1) {
-			lenght = precision;
+			length = precision;
 		}
 		Prettify(buffer, length, K);
 	}
